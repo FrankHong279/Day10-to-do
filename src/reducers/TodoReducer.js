@@ -1,5 +1,12 @@
 export function todoReducer(state, action) {
     switch (action.type) {
+        case "ADD_TODO":
+            const newId = state.length > 0 ? Math.max(...state.map(todo => todo.id)) + 1 : 1;
+            return [...state, {
+                id: newId,
+                text: action.payload.text,
+                done: false
+            }];
         case "TOGGLE_TODO":
             /// copy
             const newState = [...state];

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/components/TodoGroup.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/components/TodoGroup.js" />
+              <option name="originalContent" value="import {useContext} from &quot;react&quot;;&#10;import {TodoItem} from &quot;./TodoItem&quot;;&#10;import {AddTodo} from &quot;./AddTodo&quot;;&#10;&#10;import {TodoContext} from &quot;../contexts/TodoContext&quot;;&#10;&#10;export function TodoGroup() {&#10;    const {state, dispatch} = useContext(TodoContext)&#10;    return &lt;div&gt;&#10;        &lt;AddTodo /&gt;&#10;        {&#10;            state.map((item, index) =&gt; {&#10;                return &lt;TodoItem todo={item} key={index}/&gt;&#10;            })&#10;        }&#10;    &lt;/div&gt;&#10;}" />
+              <option name="updatedContent" value="import {useContext} from &quot;react&quot;;&#13;&#10;import {TodoItem} from &quot;./TodoItem&quot;;&#13;&#10;import {AddTodo} from &quot;./AddTodo&quot;;&#13;&#10;&#13;&#10;import {TodoContext} from &quot;../contexts/TodoContext&quot;;&#13;&#10;&#13;&#10;export function TodoGroup() {&#13;&#10;    const {state, dispatch} = useContext(TodoContext)&#13;&#10;    return &lt;div&gt;&#13;&#10;        &lt;AddTodo /&gt;&#13;&#10;        {&#13;&#10;            state.map((item, index) =&gt; {&#13;&#10;                return &lt;TodoItem todo={item} key={index}/&gt;&#13;&#10;            })&#13;&#10;        }&#13;&#10;    &lt;/div&gt;&#13;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/reducers/TodoReducer.js">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/reducers/TodoReducer.js" />
+              <option name="originalContent" value="export function todoReducer(state, action) {&#10;    switch (action.type) {&#10;        case &quot;ADD_TODO&quot;:&#10;            const newId = state.length &gt; 0 ? Math.max(...state.map(todo =&gt; todo.id)) + 1 : 1;&#10;            return [...state, {&#10;                id: newId,&#10;                text: action.payload.text,&#10;                done: false&#10;            }];&#10;        case &quot;TOGGLE_TODO&quot;:&#10;            /// copy&#10;            const newState = [...state];&#10;            const id = action.payload.id;&#10;            return newState.map((value) =&gt; {&#10;                if (value.id === id) {&#10;                    return {&#10;                        id,&#10;                        text: value.text,&#10;                        done: !value.done&#10;                    };&#10;                }&#10;&#10;                return value&#10;            })&#10;        default:&#10;            return state;&#10;    }&#10;}" />
+              <option name="updatedContent" value="export function todoReducer(state, action) {&#13;&#10;    switch (action.type) {&#13;&#10;        case &quot;ADD_TODO&quot;:&#13;&#10;            const newId = state.length &gt; 0 ? Math.max(...state.map(todo =&gt; todo.id)) + 1 : 1;&#13;&#10;            return [...state, {&#13;&#10;                id: newId,&#13;&#10;                text: action.payload.text,&#13;&#10;                done: false&#13;&#10;            }];&#13;&#10;        case &quot;TOGGLE_TODO&quot;:&#13;&#10;            /// copy&#13;&#10;            const newState = [...state];&#13;&#10;            const id = action.payload.id;&#13;&#10;            return newState.map((value) =&gt; {&#13;&#10;                if (value.id === id) {&#13;&#10;                    return {&#13;&#10;                        id,&#13;&#10;                        text: value.text,&#13;&#10;                        done: !value.done&#13;&#10;                    };&#13;&#10;                }&#13;&#10;&#13;&#10;                return value&#13;&#10;            })&#13;&#10;        default:&#13;&#10;            return state;&#13;&#10;    }&#13;&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

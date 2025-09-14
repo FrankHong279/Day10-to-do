@@ -22,6 +22,8 @@ export function todoReducer(state, action) {
 
                 return value
             })
+        case "DELETE_TODO":
+            return state.filter(todo => todo.id !== action.payload.id);
         default:
             return state;
     }

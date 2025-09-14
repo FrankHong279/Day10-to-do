@@ -17,7 +17,7 @@ export function AddTodo() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={"add-todo-box"} onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={inputValue}

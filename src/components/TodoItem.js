@@ -1,9 +1,11 @@
 import {useContext} from "react";
 
 import {TodoContext} from "../contexts/TodoContext";
+import {useNavigate} from "react-router";
 
 export function TodoItem(props) {
     const {state, dispatch} = useContext(TodoContext)
+    const navigate = useNavigate()
 
     function makeAsDone() {
         dispatch({
@@ -19,6 +21,10 @@ export function TodoItem(props) {
         })
     }
 
+    function toDetailPage() {
+        navigate("todos/" + props.todo.id)
+    }
+
     return <div className={"todo-box"}>
         <div className={"todo-item"}>
             <span
@@ -28,6 +34,7 @@ export function TodoItem(props) {
                 {props.todo.text}
             </span>
         </div>
-        <button onClick={deleteTodo} className="delete-button">X</button>
+        <button onClick={deleteTodo} className="todo-button">X</button>
+        <button onClick={toDetailPage} className="todo-button">Detail</button>
     </div>
 }

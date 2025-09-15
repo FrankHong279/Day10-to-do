@@ -53,12 +53,13 @@
   display: flex;
 }
 
-.delete-button {
-  cursor: pointer;
-  font-size: 16px;
-  min-width: 40px;
-  max-height: 45px;
-  margin-top: 20px;
+.todo-button {
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 40px;
+    max-height: 45px;
+    margin-top: 20px;
+    margin-left: 5px;
 }
 
 .todo-group h1 {

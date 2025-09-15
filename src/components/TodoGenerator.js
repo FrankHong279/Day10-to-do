@@ -1,7 +1,7 @@
 import {useState, useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 
-export function AddTodo() {
+export function TodoGenerator() {
     const [inputValue, setInputValue] = useState("");
     const {dispatch} = useContext(TodoContext);
 

@@ -108,3 +108,16 @@ div{
     margin-top: 20px;
 }
 
+.todo-box .edit-input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d9d9d9;
+    borderRadius: 6px;
+    fontSize: 14px;
+    lineHeight: 1.5;
+    resize: vertical;
+    outline: none;
+}
+
+
+

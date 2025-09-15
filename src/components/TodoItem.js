@@ -35,6 +35,7 @@ export function TodoItem(props) {
     const [inputValue, setInputValue] = useState("");
 
     const showModal = () => {
+        setInputValue(props.todo.text);
         setIsModalOpen(true);
     };
 
@@ -72,18 +73,28 @@ export function TodoItem(props) {
             Edit
         </Button>
         <Modal
-            title="Edit Todo"
-            closable={{'aria-label': 'Custom Close Button'}}
+            title="编辑待办内容"
             open={isModalOpen}
             onOk={handleOk}
             onCancel={handleCancel}
+            okText="✔ 保存"
+            cancelText="❌ 取消"
+            width={500}
+            centered
         >
-            text：
-            <input
+            <textarea
                 className={"edit-input"}
-                type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
+                rows={4}
+                style={{
+                    width: '90%',
+                    padding: '12px',
+                    border: '1px solid',
+                    borderRadius: '6px',
+                    fontSize: '14px',
+                    lineHeight: '1.5',
+                }}
             />
         </Modal>
     </div>

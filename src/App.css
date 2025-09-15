@@ -94,6 +94,8 @@ div{
     background-color: #6395ec;
     width: 70px;
     height: 40px;
+    border: none;
+    border-radius: 8px;
 }
 
 .todo-box button:hover {

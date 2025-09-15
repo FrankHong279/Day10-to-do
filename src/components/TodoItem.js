@@ -68,17 +68,19 @@ export function TodoItem(props) {
         </div>
         <button onClick={deleteTodo} className="todo-button">X</button>
         <button onClick={toDetailPage} className="todo-button">Detail</button>
-        <Button type="primary" onClick={showModal}>
+        <Button className={"edit-button"} type="primary" onClick={showModal}>
             Edit
         </Button>
         <Modal
-            title="Basic Modal"
+            title="Edit Todo"
             closable={{'aria-label': 'Custom Close Button'}}
             open={isModalOpen}
             onOk={handleOk}
             onCancel={handleCancel}
         >
+            text：
             <input
+                className={"edit-input"}
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}

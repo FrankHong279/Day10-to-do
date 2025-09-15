@@ -89,3 +89,19 @@ div{
     height: 40px;
 }
 
+.todo-box button {
+    color: white;
+    background-color: #6395ec;
+    width: 70px;
+    height: 40px;
+}
+
+.todo-box button:hover {
+    background-color: #4a76d1;
+}
+
+.todo-box .edit-button {
+    margin-left: 10px;
+    margin-top: 20px;
+}
+

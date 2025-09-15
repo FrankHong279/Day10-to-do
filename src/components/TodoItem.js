@@ -4,15 +4,19 @@ import {TodoContext} from "../contexts/TodoContext";
 import {useNavigate} from "react-router";
 import {api} from "../api/mockApi";
 
+function updateTodoItem(props) {
+    return api.put("/todos/" + props.todo.id, {
+        text: props.todo.text,
+        done: !props.todo.done
+    }).then(res => res.data);
+}
+
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext)
     const navigate = useNavigate()
 
     function makeAsDone() {
-        api.put("/todos/" + props.todo.id, {
-            text: props.todo.text,
-            done: !props.todo.done
-        }).then(res => res.data)
+        updateTodoItem(props)
             .then(todo => dispatch({
                 type: "TOGGLE_TODO",
                 payload: todo

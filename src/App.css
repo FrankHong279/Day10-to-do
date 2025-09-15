@@ -87,6 +87,7 @@ div{
     background-color: #6395ec;
     width: 80px;
     height: 40px;
+    border-radius: 16px;
 }
 
 .todo-box button {

@@ -1,46 +1,17 @@
 import './App.css';
-import {createBrowserRouter, NavLink, Outlet, RouterProvider, useParams} from "react-router";
-import {ErrorPage} from "./components/ErrorPage";
-import {HomePage} from "./components/HomePage";
+import {createBrowserRouter, RouterProvider} from "react-router";
+import {ErrorPage} from "./pages/ErrorPage";
+import {HomePage} from "./pages/HomePage";
 import {TodoContext} from "./contexts/TodoContext";
-import {useContext, useReducer} from "react";
-import {TodoItem} from "./components/TodoItem";
+import {useReducer} from "react";
 import {todoReducer} from "./reducers/TodoReducer";
+import {TodoDetailPage} from "./pages/TodoDetailPage";
+import {DefaultLayout} from "./layouts/DefaultLayout";
 
 export const initState = [
     {id: 1, text: "the first todo", done: false},
     {id: 2, text: "the second todo", done: true},
 ];
-
-function DefaultLayout() {
-    return <div>
-        <header>
-            <nav>
-                <ul>
-                    <li><NavLink to={"/"}>Home</NavLink></li>
-                    <li><NavLink to={"/todos/1"}>ID 1</NavLink></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <Outlet/>
-        </main>
-    </div>
-}
-
-function TodoDetailPage() {
-        const {id} = useParams();
-        const {state, dispatch} = useContext(TodoContext);
-        const todo = state.filter((todo => todo.id === parseInt(id)));
-        if(todo.length === 0){
-            return <div>Not Found Todo</div>
-        }
-
-        return <div>
-            {JSON.stringify(todo)}
-            <TodoItem todo={todo[0]} index={id}/>
-        </div>
-}
 
 const routes = createBrowserRouter([
     {

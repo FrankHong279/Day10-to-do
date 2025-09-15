@@ -8,7 +8,7 @@ export function useTodoService() {
     const updateTodoItem = (props) => {
         return api.put("/todos/" + props.todo.id, {
             text: props.todo.text,
-            done: !props.todo.done
+            done: props.todo.done
         }).then(res => res.data);
     }
 

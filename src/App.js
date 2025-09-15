@@ -1,23 +1,44 @@
 import './App.css';
 import {TodoList} from "./components/TodoList";
-import {createBrowserRouter} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 
 export const initState = [
     {id: 1, text: "the first todo", done: false},
     {id: 2, text: "the second todo", done: true},
 ];
 
-createBrowserRouter([
+function DefaultLayout() {
+    return <div>
+        <header>
+            <nav>
+                <ul>
+                    <li><NavLink to={"/"}>Home</NavLink></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <Outlet/>
+        </main>
+    </div>
+}
+
+const routes = createBrowserRouter([
     {
         path: "/",
-        element: <TodoList/>,
+        element: <DefaultLayout />,
+        children: [
+            {
+                path: "/",
+                element: <TodoList/>
+            }
+        ]
     }
 ]);
 
 function App() {
     return (
         <div>
-            <TodoList/>
+            <RouterProvider router={routes}/>
         </div>
     );
 }

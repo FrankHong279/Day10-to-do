@@ -3,15 +3,6 @@
   <component name="CopilotDiffPersistence">
     <option name="pendingDiffs">
       <map>
-        <entry key="$PROJECT_DIR$/src/components/TodoGroup.js">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/src/components/TodoGroup.js" />
-              <option name="originalContent" value="import {useContext} from &quot;react&quot;;&#10;import {TodoItem} from &quot;./TodoItem&quot;;&#10;import {AddTodo} from &quot;./AddTodo&quot;;&#10;&#10;import {TodoContext} from &quot;../contexts/TodoContext&quot;;&#10;&#10;export function TodoGroup() {&#10;    const {state, dispatch} = useContext(TodoContext)&#10;    return &lt;div&gt;&#10;        &lt;AddTodo /&gt;&#10;        {&#10;            state.map((item, index) =&gt; {&#10;                return &lt;TodoItem todo={item} key={index}/&gt;&#10;            })&#10;        }&#10;    &lt;/div&gt;&#10;}" />
-              <option name="updatedContent" value="import {useContext} from &quot;react&quot;;&#13;&#10;import {TodoItem} from &quot;./TodoItem&quot;;&#13;&#10;import {AddTodo} from &quot;./AddTodo&quot;;&#13;&#10;&#13;&#10;import {TodoContext} from &quot;../contexts/TodoContext&quot;;&#13;&#10;&#13;&#10;export function TodoGroup() {&#13;&#10;    const {state, dispatch} = useContext(TodoContext)&#13;&#10;    return &lt;div&gt;&#13;&#10;        &lt;AddTodo /&gt;&#13;&#10;        {&#13;&#10;            state.map((item, index) =&gt; {&#13;&#10;                return &lt;TodoItem todo={item} key={index}/&gt;&#13;&#10;            })&#13;&#10;        }&#13;&#10;    &lt;/div&gt;&#13;&#10;}" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/reducers/TodoReducer.js">
           <value>
             <PendingDiffInfo>

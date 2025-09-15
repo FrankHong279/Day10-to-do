@@ -9,12 +9,10 @@ export function todoReducer(state, action) {
             }];
         case "TOGGLE_TODO":
             /// copy
-            const newState = [...state];
-            const id = action.payload.id;
-            return newState.map((value) => {
-                if (value.id === id) {
+            return [...state].map((value) => {
+                if (value.id === action.payload.id) {
                     return {
-                        id,
+                        id: action.payload.id,
                         text: value.text,
                         done: !value.done
                     };

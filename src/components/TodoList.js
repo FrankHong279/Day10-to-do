@@ -6,13 +6,10 @@ import {TodoGenerator} from "./TodoGenerator";
 import {initState} from "../App";
 
 export function TodoList() {
-    const [state, dispatch] = useReducer(todoReducer, initState);
     return (
         <div>
-            <TodoContext1 value={{state, dispatch}}>
-                <TodoGroup/>
-                <TodoGenerator/>
-            </TodoContext1>
+            <TodoGroup/>
+            <TodoGenerator/>
         </div>
     );
 }

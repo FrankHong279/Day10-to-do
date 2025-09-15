@@ -1,17 +1,26 @@
 import './App.css';
-import {createBrowserRouter, RouterProvider} from "react-router";
+import {createBrowserRouter, RouterProvider, useParams} from "react-router";
 import {ErrorPage} from "./pages/ErrorPage";
 import {HomePage} from "./pages/HomePage";
 import {TodoContext} from "./contexts/TodoContext";
-import {useReducer} from "react";
+import {useContext, useReducer} from "react";
 import {todoReducer} from "./reducers/TodoReducer";
 import {TodoDetailPage} from "./pages/TodoDetailPage";
 import {DefaultLayout} from "./layouts/DefaultLayout";
+import {TodoItem} from "./components/TodoItem";
 
 export const initState = [
-    {id: 1, text: "the first todo", done: false},
-    {id: 2, text: "the second todo", done: true},
+    {id: "adf", text: "the first todo", done: false},
+    {id: "sfd", text: "the second todo", done: true},
 ];
+
+function DoneListPage() {
+    const {state, dispatch} = useContext(TodoContext);
+    const todo = state.filter((todo) => todo.done === true);
+    return <div>
+        {todo.map((item, index) => <TodoItem todo={item} key={item.id}/>)}
+    </div>
+}
 
 const routes = createBrowserRouter([
     {
@@ -26,6 +35,10 @@ const routes = createBrowserRouter([
             {
                 path: "/todos/:id",
                 element: <TodoDetailPage />
+            },
+            {
+                path: "/doneList",
+                element: <DoneListPage />
             }
         ]
     }

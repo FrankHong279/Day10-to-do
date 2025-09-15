@@ -3,11 +3,12 @@ import {createBrowserRouter, RouterProvider} from "react-router";
 import {ErrorPage} from "./pages/ErrorPage";
 import {HomePage} from "./pages/HomePage";
 import {TodoContext} from "./contexts/TodoContext";
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import {todoReducer} from "./reducers/TodoReducer";
 import {TodoDetailPage} from "./pages/TodoDetailPage";
 import {DefaultLayout} from "./layouts/DefaultLayout";
 import {DoneListPage} from "./pages/DoneListPage";
+import axios from "axios";
 
 export const initState = [
     {id: 1, text: "the first todo", done: false},
@@ -44,8 +45,21 @@ const routes = createBrowserRouter([
     }
 ]);
 
+const api = axios.create({
+    baseURL: "https://68c7ac8c5d8d9f514732871a.mockapi.io/",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    timeout: 10_000
+})
+
 function App() {
-    const [state, dispatch] = useReducer(todoReducer, initState)
+    const [state, dispatch] = useReducer(todoReducer, initState);
+    useEffect(() => {
+        api.get("/todos")
+            .then(response => response.data)
+            .then(todos => dispatch({ type: "LOAD_TODOS", payload: todos }))
+    }, []);
     return (
         <div>
             <TodoContext.Provider value={{state, dispatch}}>

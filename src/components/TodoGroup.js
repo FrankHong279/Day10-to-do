@@ -18,6 +18,5 @@ export function TodoGroup() {
                 return <TodoItem todo={item} key={index}/>
             })
         }
-        <AddTodo />
     </div>
 }

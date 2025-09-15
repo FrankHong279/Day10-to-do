@@ -23,8 +23,12 @@ export function TodoItem(props) {
             }))
     }
 
+    const deleteTodoItem = (props) => {
+        return api.delete("/todos/" + props.todo.id)
+    }
+
     function deleteTodo() {
-        api.delete("/todos/" + props.todo.id)
+        deleteTodoItem(props)
             .then(() => {
                 console.log("Deleted todo with id:", props.todo.id);
             })

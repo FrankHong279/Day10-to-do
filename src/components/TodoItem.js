@@ -14,9 +14,9 @@ export function TodoItem(props) {
             done: !props.todo.done
         }).then(res => res.data)
             .then(todo => dispatch({
-                    type: "TOGGLE_TODO",
-                    payload: todo
-                }))
+                type: "TOGGLE_TODO",
+                payload: todo
+            }))
     }
 
     function deleteTodo() {
@@ -24,7 +24,8 @@ export function TodoItem(props) {
             .then(() => {
                 console.log("Deleted todo with id:", props.todo.id);
             })
-        dispatch({ type: "DELETE_TODO",
+        dispatch({
+            type: "DELETE_TODO",
             payload: {id: props.todo.id}
         })
     }

@@ -4,17 +4,12 @@ export function todoReducer(state, action) {
             return [...state, action.payload];
         case "TOGGLE_TODO":
             /// copy
-            return [...state].map((value) => {
-                if (value.id === action.payload.id) {
-                    return {
-                        id: action.payload.id,
-                        text: value.text,
-                        done: !value.done
-                    };
-                }
-
-                return value
-            })
+           return state.map(todo => {
+               if (todo.id === action.payload.id) {
+                   return action.payload;
+               }
+               return todo
+           });
         case "DELETE_TODO":
             return state.filter(todo => todo.id !== action.payload.id);
         case "LOAD_TODOS":

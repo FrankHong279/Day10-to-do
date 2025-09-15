@@ -10,10 +10,7 @@ import {DefaultLayout} from "./layouts/DefaultLayout";
 import {DoneListPage} from "./pages/DoneListPage";
 import axios from "axios";
 
-export const initState = [
-    {id: 1, text: "the first todo", done: false},
-    {id: 2, text: "the second todo", done: true},
-];
+
 
 function AboutUs() {
     return <div>Frank Hong</div>;
@@ -54,7 +51,7 @@ const api = axios.create({
 })
 
 function App() {
-    const [state, dispatch] = useReducer(todoReducer, initState);
+    const [state, dispatch] = useReducer(todoReducer, []);
     useEffect(() => {
         api.get("/todos")
             .then(response => response.data)

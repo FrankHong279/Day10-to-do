@@ -1,7 +1,7 @@
 import './App.css';
-import {TodoList} from "./components/TodoList";
 import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
-import {ErrorPage} from "./ErrorPage";
+import {ErrorPage} from "./components/ErrorPage";
+import {HomePage} from "./components/HomePage";
 
 export const initState = [
     {id: 1, text: "the first todo", done: false},
@@ -31,7 +31,7 @@ const routes = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <TodoList/>
+                element: <HomePage />
             }
         ]
     }

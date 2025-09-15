@@ -9,6 +9,7 @@ import {TodoDetailPage} from "./pages/TodoDetailPage";
 import {DefaultLayout} from "./layouts/DefaultLayout";
 import {DoneListPage} from "./pages/DoneListPage";
 import axios from "axios";
+import {useTodoService} from "./useTodoService";
 
 
 
@@ -42,21 +43,9 @@ const routes = createBrowserRouter([
     }
 ]);
 
-const api = axios.create({
-    baseURL: "https://68c7ac8c5d8d9f514732871a.mockapi.io/",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    timeout: 10_000
-})
-
-const loadTodos = () => {
-    return api.get("/todos")
-        .then(response => response.data)
-}
-
 function App() {
     const [state, dispatch] = useReducer(todoReducer, []);
+    const {loadTodos} = useTodoService();
     useEffect(() => {
         loadTodos()
             .then(todos => dispatch({ type: "LOAD_TODOS", payload: todos }))

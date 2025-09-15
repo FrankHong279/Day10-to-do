@@ -1,13 +1,10 @@
-import {useState, useContext} from "react";
+import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {api} from "../api/mockApi";
+import {useTodoService} from "../useTodoService";
 
-const createTodo = (inputText) => {
-    return api.post("/todos", {text: inputText.trim(), done: false})
-        .then(res => res.data)
-}
 
 export function TodoGenerator() {
+    const {createTodo}  = useTodoService();
     const [inputValue, setInputValue] = useState("");
     const {dispatch} = useContext(TodoContext);
 
